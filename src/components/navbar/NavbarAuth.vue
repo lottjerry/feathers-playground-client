@@ -75,9 +75,15 @@ export default {
 	methods: {
 		...mapActions('auth', { authLogout: 'logout' }),
 		async logout() {
-			await this.authLogout();
-			this.$router.go('/'); // changed .push to .go to refresh page. A quick fix because feathers does not automatically clear data.
-		},
+  await this.authLogout();
+
+  // Manually clear users list to prevent stale data
+  this.$store.commit('users/clearAll'); 
+
+  // Redirect to login page
+  this.$router.push('/');
+},
+
 	},
 };
 </script>
