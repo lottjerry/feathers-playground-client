@@ -4,7 +4,7 @@ import auth from '@feathersjs/authentication-client';
 import io from 'socket.io-client';
 
 const socket = io(
-	'https://feathers-playground-server-production.up.railway.app/',
+	'https://feathers-playground-server.onrender.com',
 	{ transports: ['websocket'] }
 );
 
